@@ -46,19 +46,7 @@ terraform destroy
 ## Avisos de coste (léelos antes de aplicar del punto 5 en adelante)
 
 Los puntos 1–4 son gratuitos. A partir del punto 5 (EC2) puedes incurrir en
-gastos. Dos cosas que el enunciado original no contempla por ser anterior:
-
-1. **El free tier cambió el 15-07-2025.** Las cuentas creadas *antes* mantienen el
-   tier legacy de 12 meses (750 h/mes de instancia micro; en `eu-west-1` esa
-   instancia es `t2.micro`). Las creadas *después* usan un **modelo de créditos**:
-   ahí la API solo deja lanzar tipos marcados *free-tier-eligible*, y en `eu-west-1`
-   ese tipo es `t3.micro` (no `t2.micro`). Por eso el default del proyecto es
-   `t3.micro`, que cubre el caso más común hoy. Comprueba el tuyo con:
-   `aws ec2 describe-instance-types --filters "Name=free-tier-eligible,Values=true"
-   --query "InstanceTypes[].InstanceType" --region eu-west-1 --output text`. Si tu
-   cuenta es legacy, pon `instance_type = "t2.micro"` en el tfvars.
-2. **La IPv4 pública se cobra** (~3,60 USD/mes por dirección) desde 2024. El tier
-   legacy aún la cubre los primeros 12 meses; las cuentas nuevas pagan.
+gastos.
 
 Haz siempre `terraform destroy` al terminar para evitar sorpresas.
 
