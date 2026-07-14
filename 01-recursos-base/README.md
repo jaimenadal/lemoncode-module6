@@ -32,33 +32,33 @@ más `tls`, `local` y `http`.
 El apply completa la instancia y muestra los outputs: `instance_public_ip`,
 `ssh_command`, `http_url` y `deploy_nginx_command`.
 
-![terraform apply](docs/mod6-2.png)
+![terraform apply](../docs/mod6-2.png)
 
 ### 3. Key pair generado y conexión SSH (puntos 4 y 5)
 
 `ls -ltr` muestra el fichero `lemoncode-m6-key.pem` (permisos `0600`) creado por
 Terraform, y la conexión SSH a la instancia (Amazon Linux 2023).
 
-![key pair y ssh](docs/mod6-3.png)
+![key pair y ssh](../docs/mod6-3.png)
 
 ### 4. Docker instalado por `user_data` + NGINX sirviendo (puntos 6 y 7)
 
 `cloud-init status --wait` en `done`, Docker activo, y el contenedor NGINX
 respondiendo `HTTP/1.1 200 OK` a `curl -I localhost` dentro de la instancia.
 
-![docker y nginx](docs/mod6-5.png)
+![docker y nginx](../docs/mod6-5.png)
 
 ### 5. NGINX accesible por la IP pública (punto 7)
 
 Página de bienvenida de NGINX en `http://52.210.238.141` desde el navegador local.
 
-![nginx en el navegador](docs/mod6-4.png)
+![nginx en el navegador](../docs/mod6-4.png)
 
 ### 6. `terraform destroy` — limpieza
 
 Todos los recursos eliminados (13) para no incurrir en gastos.
 
-![terraform destroy](docs/mod6-6.png)
+![terraform destroy](../docs/mod6-6.png)
 
 ## Notas
 
