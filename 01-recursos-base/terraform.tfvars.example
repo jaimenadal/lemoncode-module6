@@ -1,0 +1,13 @@
+# Copia este fichero a terraform.tfvars y ajusta los valores que quieras.
+# terraform.tfvars NO debe subirse al repositorio.
+
+aws_region    = "eu-west-1"
+project_name  = "lemoncode-m6"
+instance_type = "t3.micro"
+
+# Por defecto se detecta tu IP automaticamente para el SSH (puerto 22).
+# Descomenta para fijarla a mano:
+# ssh_allowed_cidr = "203.0.113.10/32"
+
+# Pon a true si quieres que NGINX se levante solo en el arranque (sin SSH).
+# auto_deploy_nginx = true

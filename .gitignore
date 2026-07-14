@@ -1,0 +1,13 @@
+# Terraform state y working dir
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Variables locales (pueden contener datos sensibles)
+terraform.tfvars
+*.auto.tfvars
+
+# Claves privadas generadas por el ejercicio
+*.pem

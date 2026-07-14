@@ -1,0 +1,21 @@
+#!/bin/bash
+set -euo pipefail
+
+# ──────────────────────────────────────────────────────────────────────────
+# Instalacion de Docker (Amazon Linux 2023 usa dnf)
+# ──────────────────────────────────────────────────────────────────────────
+dnf update -y
+dnf install -y docker
+
+# Habilita y arranca el servicio Docker.
+systemctl enable --now docker
+
+# Permite a ec2-user usar docker sin sudo (efectivo en la siguiente sesion SSH).
+usermod -aG docker ec2-user
+
+%{ if auto_deploy_nginx ~}
+# ──────────────────────────────────────────────────────────────────────────
+# Levantar NGINX automaticamente en el puerto 80
+# ──────────────────────────────────────────────────────────────────────────
+docker run -d --name nginx --restart unless-stopped -p 80:80 nginx:1.27-alpine
+%{ endif ~}
