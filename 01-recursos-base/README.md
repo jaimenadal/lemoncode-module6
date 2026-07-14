@@ -25,7 +25,7 @@ individuales de Terraform (sin módulos). Región `eu-west-1`; instancia `t3.mic
 Inicializa el backend y descarga los providers: `aws ~> 6.0` (instala v6.54.0),
 más `tls`, `local` y `http`.
 
-![terraform init](docs/mod6-1.png)
+![terraform init](../docs/mod6-1.png)
 
 ### 2. `terraform apply` — outputs con la IP pública (puntos 1–7)
 
